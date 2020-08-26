@@ -55,7 +55,7 @@ class LoaderNode(template.Node):
             'dst': domain,
             'ts': timezone.now().isoformat()
         })
-        return urlsafe_base64_encode(enc_payload).decode('ascii')
+        return urlsafe_base64_encode(enc_payload)
 
     def build_url(self, domain, message):
         return urljoin(domain, reverse('shared_session:share', kwargs={'message': message}))
